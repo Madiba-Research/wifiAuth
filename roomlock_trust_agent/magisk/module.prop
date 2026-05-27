@@ -1,0 +1,6 @@
+id=roomlock_trust_agent
+name=RoomLock Trust Agent
+version=0.1.0
+versionCode=1
+author=RoomLock
+description=Installs RoomLock as a privileged Android TrustAgentService for Magisk-based testing.

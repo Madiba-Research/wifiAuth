@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">RoomLock</string>
+    <string name="agent_label">RoomLock</string>
+    <string name="agent_summary">Unlock with local Wi-Fi room authentication.</string>
+    <string name="settings_label">RoomLock settings</string>
+    <string name="keep_alive_title">RoomLock active</string>
+    <string name="keep_alive_text">Keeping RoomLock ready for Wi-Fi unlock.</string>
+    <string name="trust_message">RoomLock trust granted</string>
+    <string name="register">Register RoomLock</string>
+    <string name="missing_permission">Grant Wi-Fi/location permission, then register again.</string>
+    <string name="not_registered">RoomLock is not registered.</string>
+    <string name="registered">RoomLock profile is registered.</string>
+</resources>

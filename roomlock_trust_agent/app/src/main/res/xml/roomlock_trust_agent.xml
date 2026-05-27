@@ -1,0 +1,4 @@
+<trust-agent xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/agent_label"
+    android:summary="@string/agent_summary"
+    android:settingsActivity=".RoomLockSettingsActivity" />

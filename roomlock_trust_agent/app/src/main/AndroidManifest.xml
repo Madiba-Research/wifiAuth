@@ -1,0 +1,47 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.PROVIDE_TRUST_AGENT" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES" />
+
+    <application
+        android:allowBackup="false"
+        android:directBootAware="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+
+        <service
+            android:name=".RoomLockTrustAgentService"
+            android:directBootAware="true"
+            android:exported="true"
+            android:label="@string/agent_label"
+            android:permission="android.permission.BIND_TRUST_AGENT">
+            <intent-filter>
+                <action android:name="android.service.trust.TrustAgentService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.service.trust.trustagent"
+                android:resource="@xml/roomlock_trust_agent" />
+        </service>
+
+        <service
+            android:name=".RoomLockKeepAliveService"
+            android:exported="false"
+            android:foregroundServiceType="location" />
+
+        <activity
+            android:name=".RoomLockSettingsActivity"
+            android:exported="true"
+            android:label="@string/settings_label">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+    </application>
+</manifest>
