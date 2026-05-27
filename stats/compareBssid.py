@@ -57,6 +57,9 @@ if __name__ == "__main__":
     auth_file = "auth_app_p7_auth.log"
     auth_file_path = os.path.join(log_dir, auth_file)
     auth_json_list = extract_JSON_from_log(auth_file_path)
+
+    rssi_diff_list = []
+    
     for auth_json in auth_json_list:
         if auth_json['username'] == 'mmoffice':
             aps = auth_json['aps']
@@ -71,8 +74,16 @@ if __name__ == "__main__":
             for bssid in bssid_set:
                 rssi_reg = next((ap['rssi'] for ap in avg_scan_reg if ap['bssid'] == bssid), None)
                 rssi_auth = next((ap['rssi'] for ap in avg_scan_auth if ap['bssid'] == bssid), None)
-                print(f"BSSID: {bssid}, Reg RSSI: {rssi_reg}, Auth RSSI: {rssi_auth}")
+                print(f"BSSID: {bssid} \t Reg RSSI: {rssi_reg} \t Auth RSSI: {rssi_auth}")
+                if rssi_reg is not None and rssi_auth is not None:
+                    rssi_diff = abs(rssi_reg - rssi_auth)
+                    rssi_diff_list.append(rssi_diff)
+                    print(f"RSSI difference: {rssi_diff}")
         print("---------------------")
+
+    print(f"average rssi difference: {sum(rssi_diff_list)/len(rssi_diff_list)}")
+    print(f"max rssi difference: {max(rssi_diff_list)}")
+    print(f"min rssi difference: {min(rssi_diff_list)}")
 
 
     

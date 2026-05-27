@@ -31,7 +31,7 @@ device = 'cpu'
 encoder_model = GNNEncoder(input_dim=6, hidden_dim=64, output_dim=32).to(device)
 triplet_model = TripletNet(encoder_model).to(device)
 
-# checkpoint = torch.load('best_630_model.pth', map_location=device)
+checkpoint = torch.load('best_630_model.pth', map_location=device)
 
 # checkpoint = torch.load('best_630d1_model.pth', map_location=device)
 # checkpoint = torch.load('best_630d2_model.pth', map_location=device)
@@ -66,7 +66,11 @@ encoder_model.eval()
 # auth_system = AuthSystem("H_G_demo_32_dimension.npz", "usersd3normDict_main_pool_randomtrain_s30.db")
 # auth_system = AuthSystem("H_G_demo_32_dimension.npz", "usersd3normDict_main_pool_differentdevice.db")
 # auth_system = AuthSystem("H_G_demo_32_dimension.npz", "usersd3normDict_main_pool_another20user.db")
-auth_system = AuthSystem("H_G_demo_32_dimension.npz", "usersd3normDict_main_pool_all25user_13.db")
+# auth_system = AuthSystem("H_G_demo_32_dimension.npz", "usersd3normDict_main_pool_all25user_13.db")
+
+# may 2, 2026: for long term test
+auth_system = AuthSystem("H_G_demo_32_dimension.npz", "usersd3normDict_main_pool_1month2.db")
+
 
 
 # auth_system = AuthSystem("H_G_demo_8_dimension.npz", "userswallsigma2.db")
@@ -77,8 +81,8 @@ auth_system = AuthSystem("H_G_demo_32_dimension.npz", "usersd3normDict_main_pool
 
 # sigma_filter = 1
 # sigma_filter = 1.5
-sigma_filter = 1.3
-# sigma_filter = 2 # our choosen standard
+# sigma_filter = 1.3 # standard for f1 score
+sigma_filter = 2 # our choosen standard
 # sigma_filter = 2
 
 
