@@ -1,0 +1,1 @@
+For the convenience of the judges, the minimal verifiable and executable project—including both code and datasets—has been packaged into a zip file (roomlock-minimal.zip). Please download the zip file (roomlock-minimal.zip) directly and run it.
